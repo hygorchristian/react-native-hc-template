@@ -4,7 +4,7 @@ import {
   Container, Status, Logo, Welcome, Instruction
 } from './styles';
 
-import bg from '~/assets/img/bg.jpg'
+import bg from '~/assets/img/bg.png'
 
 const Main = () => (
   <Container source={bg}>
