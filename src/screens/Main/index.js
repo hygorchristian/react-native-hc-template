@@ -6,7 +6,7 @@ import {
 
 const Main = () => (
   <Container
-    sou
+    source={{
       uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/background.png',
     }}
   >
