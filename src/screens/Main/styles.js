@@ -5,7 +5,7 @@ const LOGO_HEIGHT = Dimensions.get('window').height * 0.11;
 const LOGO_WIDTH = LOGO_HEIGHT * (1950 / 662);
 
 export const Container = styled.ImageBackground.attrs({
-  resizeMode: 'contain'
+  resizeMode: 'cover'
 })`
   align-items: center;
   flex: 1;
