@@ -4,5 +4,16 @@
   "react-native-gesture-handler": "latest",
   "react-navigation": "latest",
   "reactotron-react-native": "latest",
-  "styled-components": "latest"
+  "styled-components": "latest",
+  "redux": "latest",
+  "redux-saga": "latest",
+  "redux-persist": "latest",
+  "reduxsauce": "latest",
+  "seamless-immutable": "latest",
+  "lodash": "latest",
+  "date-fns": "latest",
+  "react-native-iphone-x-helper": "latest",
+  "reactotron-redux": "latest",
+  "reactotron-redux-saga": "latest",
+  "url": "latest"
 }
