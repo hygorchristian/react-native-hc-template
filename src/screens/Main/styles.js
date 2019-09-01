@@ -1,6 +1,5 @@
 import { Dimensions } from 'react-native';
-import styled from 'styled-components';
-
+import styled, { css } from 'styled-components';
 
 const LOGO_HEIGHT = Dimensions.get('window').height * 0.11;
 const LOGO_WIDTH = LOGO_HEIGHT * (1950 / 662);
