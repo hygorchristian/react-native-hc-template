@@ -7,9 +7,7 @@ import {
 import bg from '~/assets/img/bg.jpg'
 
 const Main = () => (
-  <Container
-    source={bg}
-  >
+  <Container source={bg}>
     <Status barStyle="light-content" backgroundColor="#7159c1" />
     <Logo
       source={{
