@@ -4,11 +4,11 @@ import {
   Container, Status, Logo, Welcome, Instruction
 } from './styles';
 
+import bg from '~/assets/img/bg.jpg'
+
 const Main = () => (
   <Container
-    source={{
-      uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/background.png',
-    }}
+    source={bg}
   >
     <Status barStyle="light-content" backgroundColor="#7159c1" />
     <Logo
@@ -16,7 +16,7 @@ const Main = () => (
         uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo.png',
       }}
     />
-    <Welcome style={styles.welcome}>Bem-vindo ao Template Básico!</Welcome>
+    <Welcome>Bem-vindo ao Template Básico!</Welcome>
     <Instruction>Essa é a tela principal da sua aplicação =)</Instruction>
     <Instruction>Você pode editar a tela no arquivo:</Instruction>
     <Instruction bold>src/pages/Main/index.js</Instruction>
