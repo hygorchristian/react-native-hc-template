@@ -5,6 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '~/store';
 import Routes from '~/routes';
 
+console.disableYellowBox = true;
+
 const App = () => (
   <Provider store={store}>
     <PersistGate loading={null} persistor={persistor}>
