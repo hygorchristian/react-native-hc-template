@@ -7,6 +7,9 @@ const { Types, Creators } = createActions({
   loadAuthRequest: ['email', 'password'],
   loadAuthSuccess: ['data'],
   loadAuthFailure: ['error'],
+  setJwtToken: ['token'],
+  setUser: ['user'],
+  updateUser: null,
   logout: null,
 });
 
@@ -20,6 +23,7 @@ export const INITIAL_STATE = Immutable({
   user: null,
   loading: false,
   error: null,
+  token: null,
 });
 
 // Reducer Functions
@@ -33,13 +37,10 @@ const loadSuccess = (state, { data }) => ({
   error: null,
 });
 const loadFailure = (state, { error }) => ({ ...state, error, loading: false });
-const logout = state => ({
-  ...state,
-  error: null,
-  loading: false,
-  user: null,
-  isAuth: false,
-});
+const logout = state => INITIAL_STATE;
+
+const setJwtToken = (state, { token }) => ({ ...state, token });
+const setUser = (state, { user }) => ({ ...state, user });
 
 // Reducer
 
@@ -47,5 +48,7 @@ export const AuthReducer = createReducer(INITIAL_STATE, {
   [Types.LOAD_AUTH_REQUEST]: loadRequest,
   [Types.LOAD_AUTH_SUCCESS]: loadSuccess,
   [Types.LOAD_AUTH_FAILURE]: loadFailure,
+  [Types.SET_JWT_TOKEN]: setJwtToken,
+  [Types.SET_USER]: setUser,
   [Types.LOGOUT]: logout,
 });
