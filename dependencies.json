@@ -1,6 +1,7 @@
 {
   "axios": "latest",
   "date-fns": "latest",
+  "jwt-decode": "latest",
   "lodash": "latest",
   "prop-types": "latest",
   "react-native-gesture-handler": "latest",

@@ -10,6 +10,7 @@ module.exports = {
     alias: {
       root: path.resolve(__dirname, './src'),
       '~': path.resolve(__dirname, './src'),
+      '#': path.resolve(__dirname, './assets')
     },
   },
 };

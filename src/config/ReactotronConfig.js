@@ -8,7 +8,10 @@ import sagaPlugin from 'reactotron-redux-saga';
 const { hostname } = url.parse(NativeModules.SourceCode.scriptURL);
 
 if (__DEV__) {
-  const tron = Reactotron.configure({ host: hostname, name: 'React Native Demo' })
+  const tron = Reactotron.configure({
+    host: hostname,
+    name: 'React Native App'
+  })
     .useReactNative({
       asyncStorage: false,
     })

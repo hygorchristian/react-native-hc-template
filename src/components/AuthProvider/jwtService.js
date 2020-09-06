@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 import EventEmitter from './EventEmitter';
 import Api from '~/services/Api';
 import { store } from '~/store';
-import { AuthActions } from '~/store/ducks/auth';
+import { AuthActions } from './redux/auth-duck';
 
 class jwtService extends EventEmitter {
   init() {

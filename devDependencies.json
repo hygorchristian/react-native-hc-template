@@ -11,5 +11,6 @@
   "eslint-plugin-react-native": "latest",
   "prettier": "latest",
   "eslint-plugin-prettier": "latest",
-  "eslint-config-prettier": "latest"
+  "eslint-config-prettier": "latest",
+  "@testing-library/react-native": "latest"
 }
