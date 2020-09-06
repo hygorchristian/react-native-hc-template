@@ -13,7 +13,7 @@ export function* loadAuth({ email, password }) {
   }
 }
 
-export function* logout({ username }) {
+export function* logout() {
   yield call(jwtService.logout);
 }
 

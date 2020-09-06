@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import { createStore, compose, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
@@ -22,10 +24,7 @@ const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 middlewares.push(sagaMiddleware);
 
 const composer = __DEV__
-  ? compose(
-    applyMiddleware(...middlewares),
-    console.tron.createEnhancer(),
-  )
+  ? compose(applyMiddleware(...middlewares), console.tron.createEnhancer())
   : compose(applyMiddleware(...middlewares));
 
 const persistedReducer = persistReducer(persistConfig, reducers);

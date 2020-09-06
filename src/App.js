@@ -2,10 +2,11 @@ import '~/config/ReactotronConfig';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import AuthProvider from '~/components/AuthProvider';
 import { store, persistor } from '~/store';
 import Routes from '~/routes';
-import AuthProvider from '~/components/AuthProvider';
 
+// eslint-disable-next-line no-console
 console.disableYellowBox = true;
 
 const App = () => (

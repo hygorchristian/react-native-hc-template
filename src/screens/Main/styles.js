@@ -5,7 +5,7 @@ const LOGO_HEIGHT = Dimensions.get('window').height * 0.11;
 const LOGO_WIDTH = LOGO_HEIGHT * (1950 / 662);
 
 export const Container = styled.ImageBackground.attrs({
-  resizeMode: 'cover'
+  resizeMode: 'cover',
 })`
   align-items: center;
   flex: 1;
@@ -14,11 +14,11 @@ export const Container = styled.ImageBackground.attrs({
 
 export const Status = styled.StatusBar.attrs({
   barStyle: 'light-content',
-  backgroundColor: '#429dc1'
+  backgroundColor: '#429dc1',
 })``;
 
 export const Logo = styled.Image.attrs({
-  resizeMode: 'contain'
+  resizeMode: 'contain',
 })`
   height: ${LOGO_HEIGHT}px;
   width: ${LOGO_WIDTH}px;
@@ -35,14 +35,11 @@ export const Welcome = styled.Text`
 export const Instruction = styled.Text`
   color: #ddd;
   font-size: 14px;
-  margin-top: ${({ bold }) => bold ? '5px' : '20px'};
+  margin-top: ${({ bold }) => (bold ? '5px' : '20px')};
   text-align: center;
-  ${({ bold }) => bold && css`
-    font-weight: bold;
-  `}
+  ${({ bold }) =>
+    bold &&
+    css`
+      font-weight: bold;
+    `}
 `;
-
-
-
-
-

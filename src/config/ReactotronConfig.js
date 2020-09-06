@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import url from 'url';
 import { NativeModules } from 'react-native';
 
@@ -10,7 +12,7 @@ const { hostname } = url.parse(NativeModules.SourceCode.scriptURL);
 if (__DEV__) {
   const tron = Reactotron.configure({
     host: hostname,
-    name: 'React Native App'
+    name: 'React Native App',
   })
     .useReactNative({
       asyncStorage: false,
@@ -22,6 +24,6 @@ if (__DEV__) {
   tron.clear();
 
   console.tron = tron;
-}else{
+} else {
   console.tron = console;
 }

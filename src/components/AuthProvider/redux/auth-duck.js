@@ -28,7 +28,7 @@ export const INITIAL_STATE = Immutable({
 
 // Reducer Functions
 
-const loadRequest = state => ({ ...state, loading: true, error: null });
+const loadRequest = (state) => ({ ...state, loading: true, error: null });
 const loadSuccess = (state, { data }) => ({
   ...state,
   isAuth: true,
@@ -37,7 +37,7 @@ const loadSuccess = (state, { data }) => ({
   error: null,
 });
 const loadFailure = (state, { error }) => ({ ...state, error, loading: false });
-const logout = state => INITIAL_STATE;
+const logout = () => INITIAL_STATE;
 
 const setJwtToken = (state, { token }) => ({ ...state, token });
 const setUser = (state, { user }) => ({ ...state, user });

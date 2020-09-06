@@ -1,10 +1,10 @@
 import jwtDecode from 'jwt-decode';
 import EventEmitter from './EventEmitter';
-import Api from '~/services/Api';
 import { store } from '~/store';
+import Api from '~/services/Api';
 import { AuthActions } from './redux/auth-duck';
 
-class jwtService extends EventEmitter {
+class JwtService extends EventEmitter {
   init() {
     this.setInterceptors();
     this.handleAuthentication();
@@ -23,14 +23,14 @@ class jwtService extends EventEmitter {
   };
 
   handleAuthentication = () => {
-    const access_token = this.getAccessToken();
+    const accessToken = this.getAccessToken();
 
-    if (!access_token) {
+    if (!accessToken) {
       return;
     }
 
-    if (this.isAuthTokenValid(access_token)) {
-      this.setSession(access_token);
+    if (this.isAuthTokenValid(accessToken)) {
+      this.setSession(accessToken);
       this.emit('onAutoLogin', true);
     } else {
       this.setSession(null);
@@ -53,7 +53,7 @@ class jwtService extends EventEmitter {
   login = (email, password) =>
     new Promise((resolve, reject) => {
       Api.login({ email, password })
-        .then(response => {
+        .then((response) => {
           if (response.data) {
             this.setSession(response.data.token);
             resolve(response.data);
@@ -61,14 +61,14 @@ class jwtService extends EventEmitter {
             reject(response.data.error);
           }
         })
-        .catch(e => {
+        .catch((e) => {
           reject(e);
         });
     });
 
   signInWithToken = () =>
     new Promise((resolve, reject) => {
-      Api.checkAuth().then(response => {
+      Api.checkAuth().then((response) => {
         if (response.data.user) {
           resolve(response.data.user);
         } else {
@@ -77,10 +77,10 @@ class jwtService extends EventEmitter {
       });
     });
 
-  setSession = access_token => {
-    if (access_token) {
-      store.dispatch(AuthActions.setJwtToken(access_token));
-      Api.setToken(access_token);
+  setSession = (accessToken) => {
+    if (accessToken) {
+      store.dispatch(AuthActions.setJwtToken(accessToken));
+      Api.setToken(accessToken);
     } else {
       store.dispatch(AuthActions.setJwtToken(null));
       Api.removeToken();
@@ -91,25 +91,23 @@ class jwtService extends EventEmitter {
     this.setSession(null);
   };
 
-  isAuthTokenValid = access_token => {
-    if (!access_token) {
-      return false;
-    }
-    const decoded = jwtDecode(access_token);
-    const currentTime = Date.now() / 1000;
-    if (decoded.exp < currentTime) {
-      console.warn('o token de acesso foi expirado');
-      return false;
-    }
-    return true;
-  };
+  isAuthTokenValid = (accessToken) =>
+    new Promise((resolve, reject) => {
+      if (!accessToken) {
+        reject(new Error('There is no access token'));
+      }
+      const decoded = jwtDecode(accessToken);
+      const currentTime = Date.now() / 1000;
+      if (decoded.exp < currentTime) {
+        reject(new Error('The access token is expired'));
+      }
+      resolve();
+    });
 
-  setAuth = () => {
+  setAuth = async () => {
     const token = this.getAccessToken();
-    if (this.isAuthTokenValid(token)) {
-      Api.setToken(token);
-    } else {
-    }
+    await this.isAuthTokenValid(token);
+    Api.setToken(token);
   };
 
   getAccessToken = () => {
@@ -119,6 +117,6 @@ class jwtService extends EventEmitter {
   };
 }
 
-const instance = new jwtService();
+const instance = new JwtService();
 
 export default instance;

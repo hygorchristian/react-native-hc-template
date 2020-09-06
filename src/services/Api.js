@@ -19,7 +19,7 @@ class Api {
     });
   }
 
-  setToken = token => {
+  setToken = (token) => {
     this.api.defaults.headers.common.Authorization = `Bearer ${token}`;
   };
 
@@ -31,11 +31,11 @@ class Api {
   // 00. Auth
   // ===========================================================================
 
-  login = data => this.api.post('/auth', data);
+  login = (data) => this.api.post('/auth', data);
 
-  logout = data => this.api.delete('/auth');
+  logout = () => this.api.delete('/auth');
 
-  checkAuth = () => this.api.get('/check-auth')
+  checkAuth = () => this.api.get('/check-auth');
 }
 
 export default new Api();

@@ -1,17 +1,15 @@
 import React from 'react';
 
-import {
-  Container, Status, Logo, Welcome, Instruction
-} from './styles';
-
-import bg from '#/img/bg.png'
+import bg from '~/assets/img/bg.png';
+import { Container, Status, Logo, Welcome, Instruction } from './styles';
 
 const Main = () => (
   <Container source={bg}>
     <Status barStyle="light-content" backgroundColor="#7159c1" />
     <Logo
       source={{
-        uri: 'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo.png',
+        uri:
+          'https://s3-sa-east-1.amazonaws.com/rocketseat-cdn/rocketseat_logo.png',
       }}
     />
     <Welcome testID="welcome-text">Welcome to basic template!</Welcome>

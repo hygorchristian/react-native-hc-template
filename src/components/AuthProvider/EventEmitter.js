@@ -19,7 +19,7 @@ class EventEmitter {
   once(eventName, fn) {
     const self = this;
 
-    const onceFn = function(...args) {
+    const onceFn = function (...args) {
       self.removeListener(eventName, onceFn);
       fn.apply(self, args);
     };
@@ -27,7 +27,7 @@ class EventEmitter {
   }
 
   emit(eventName, ...args) {
-    this._getEventListByName(eventName).forEach(fn => {
+    this._getEventListByName(eventName).forEach((fn) => {
       fn.apply(this, args);
     });
   }
